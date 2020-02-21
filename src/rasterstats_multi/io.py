@@ -4,7 +4,12 @@ from __future__ import division
 import sys
 import json
 import math
-import fiona
+try:
+    import fiona
+    hasFiona = True
+except ImportError:
+    hasFiona = False
+
 import rasterio
 import warnings
 from affine import Affine
@@ -75,6 +80,7 @@ def read_features(obj, layer=0):
     if isinstance(obj, string_types):
         try:
             # test it as fiona data source
+            assert hasFiona
             with fiona.open(obj, 'r', layer=layer) as src:
                 assert len(src) > 0
 

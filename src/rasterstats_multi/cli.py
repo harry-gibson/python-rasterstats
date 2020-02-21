@@ -2,8 +2,8 @@
 from __future__ import absolute_import
 from __future__ import division
 import click
-from rasterstats import zonal_stats, point_query
-from rasterstats.io import read_features
+from rasterstats_multi import zonal_stats, point_query
+from rasterstats_multi.io import read_features
 import logging
 try:
     import simplejson as json
